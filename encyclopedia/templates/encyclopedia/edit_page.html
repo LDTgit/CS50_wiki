@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+
+{% block body %}
+   
+    <form action="/wiki/modify_page/{{title}}" method="post" style="display: flex; flex-direction: column"> {% csrf_token %}  
+        <div>Title: {{ title }}</div>
+        <br>
+        <div>Content: 
+            <br>
+            <textarea name="b" >{{ content }}</textarea>
+            <br>
+        <button class="btn btn-outline-primary" style="width: 100px;"> Save </button></div>
+    </form>
+    
+{% endblock %}

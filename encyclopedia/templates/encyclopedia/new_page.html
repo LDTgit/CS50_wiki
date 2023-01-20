@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create a new page
+{% endblock %}
+
+{% block body %}
+    <h1>New page entry: </h1>
+    {% if error_message %}
+    <h2 style="color: red;">{{error_message}}</h2>
+    {% endif %}
+    <form action="/wiki/add_page" method="post" style="display: flex; flex-direction: column"> {% csrf_token %} 
+        <div>Title: </div>
+        <div><input type="text" name="a" placeholder="New entry title" style="width: 80%;" value={{title}}></div>
+        <div>Content: </div>
+        <div><textarea name="b" rows="4" cols="50" placeholder="New entry content">{{content}}</textarea></div>
+        <button class="btn btn-outline-primary" style="width: 100px;">Submit</button>
+    </form>
+
+
+{% endblock %}
